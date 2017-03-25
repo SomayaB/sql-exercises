@@ -57,7 +57,7 @@ Becoming a full stack web developer means that you need to be comfortable with w
   - [x] complete the tutorial for the `group by` clause [here](https://www.tutorialspoint.com/postgresql/postgresql_group_by.htm)
 
 ### Day 4: Mini Project & Exercises
-- [ ] Exercises 1-13 in the [sql-exercises][sql-exercises] repo are complete and written to the appropriate file:
+- [x] Exercises 1-13 in the [sql-exercises][sql-exercises] repo are complete and written to the appropriate file:
   - [x] `sql/01-create-table-student.sql`
   - [x] `sql/02-create-table-friend.sql`
   - [x] `sql/03-create-table-like.sql`
@@ -69,15 +69,15 @@ Becoming a full stack web developer means that you need to be comfortable with w
   - [x] `sql/09-mutual-likes.sql`
   - [x] `sql/10-not-liked.sql`
   - [x] `sql/11-liked-but-does-not-like.sql`
-  - [ ] `sql/12-find-friends-in-common.sql`
+  - [x] `sql/12-find-friends-in-common.sql`
   - [x] `sql/13-popular-students.sql`
 
 ### Day 5: Exercises on SQL Bolt
-- [ ] Complete the [SQL Bolt tutorial](https://sqlbolt.com/)
+- [x] Complete the [SQL Bolt tutorial](https://sqlbolt.com/)
 
 ### Stretch
 - [ ] Complete the [Codeacademy course on SQL](https://www.codecademy.com/learn/learn-sql)
-- [ ] Complete the [SQL Zoo quizzes](http://sqlzoo.net/wiki/Tutorial_Quizzes)
+- [-] Complete the [SQL Zoo quizzes](http://sqlzoo.net/wiki/Tutorial_Quizzes) (Did half of them)
 
 ### Quality Rubric
 

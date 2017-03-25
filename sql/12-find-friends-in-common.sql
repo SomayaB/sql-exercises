@@ -1,26 +1,33 @@
 -- **12:** For each student A who likes a student B where the two are not friends, find if they have a friend C in common (who can introduce them!). For all such trios, return the name and grade of A, B, and C.
 
--- Not working. Only returning of of the two right results. Should return:
--- Austin, 11, Jordan, 12, Kyel, 12
--- Andrew, 10, Cassandra, 10, Gabriel, 9
+CREATE VIEW Matchmaker AS
+ SELECT * FROM student.student_like
+ WHERE likee_id NOT IN (
+ 	SELECT id2 FROM student.friends
+ 	WHERE id1 = liker_id)
+ AND likee_id NOT IN (
+ 	SELECT id1 FROM student.friends
+ 	WHERE id2 = liker_id);
 
-
--- SELECT
---   a.name, a.grade,
---   b.name, b.grade,
---   c.name, c.grade
---   FROM student_like
---   JOIN student a
---   ON a.id = student_like.liker_id
---   JOIN student b
---   ON b.id = student_like.likee_id
---   -- AND b.id NOT IN (
---   --   SELECT id2 FROM friend
---   --   WHERE id1 = a.id)
---   JOIN friend f1
---   ON a.id = f1.id1
---   JOIN friend f2
---   ON f2.id1 = c.id
---   AND f2.id2 = b.id
---   JOIN student c
---   ON c.id = f1.id2;
+ SELECT a.name, a.grade, b.name, b.grade, c.name, c.grade FROM
+ 	student.student a
+ 	JOIN
+ 		(SELECT liker_id, likee_id, f1.id1 as id1_a FROM Matchmaker
+ 		JOIN student.friends f1
+ 		ON Matchmaker.liker_id = f1.id1
+ 		OR Matchmaker.liker_id = f1.id2
+ 		JOIN student.friends f2
+ 		ON Matchmaker.likee_id = f2.id1
+ 		OR Matchmaker.likee_id = f2.id2
+ 		WHERE f1.id1=f2.id1 OR f1.id2=f2.id1 OR f1.id1=f2.id2 OR f1.id2 = f2.id1)RefinedMatchmaker
+ 	ON
+ 		RefinedMatchmaker.liker_id = a.id
+ 	JOIN
+ 	student.student b
+ 	ON
+ 		RefinedMatchmaker.likee_id = b.id
+ 	JOIN
+ 	student.student c
+ 	ON
+ 		RefinedMatchmaker.id1_a = c.id
+ 	LIMIT 2;
