@@ -1,3 +1,7 @@
+#nappy-pronghorn
+Somaya Bounouar
+Goal : http://jsdev.learnersguild.org/goals/178-Core_SQL.html
+
 # SQL Exercises
 
 Exercises to help exercise the SQL muscles.
